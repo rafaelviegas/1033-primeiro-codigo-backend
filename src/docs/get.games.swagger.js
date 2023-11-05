@@ -3,11 +3,6 @@ module.exports = {
     tags: ['Games'],
     description: "Retorna listagem de games cadastrados",
     operationId: 'getGames',
-    security: [
-        {
-            bearerAuth: []
-        }
-    ],
     responses: {
         "200": {          
             description: "Listagem de games.",

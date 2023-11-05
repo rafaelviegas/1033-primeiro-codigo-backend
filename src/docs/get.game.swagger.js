@@ -3,11 +3,6 @@ module.exports = {
     tags: ['Games'],
     description: "Consulta um game por ID",
     operationId: 'getGameById',
-    security: [
-        {
-            bearerAuth: []
-        }
-    ],
     parameters: [
         {
             "name": "gameId",

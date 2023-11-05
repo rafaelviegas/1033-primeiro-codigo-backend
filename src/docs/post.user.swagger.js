@@ -3,11 +3,6 @@ module.exports = {
     tags: ['Users'],
     description: "Cadastro de membros",
     operationId: 'postUser',
-    security: [
-        {
-            bearerAuth: []
-        }
-    ],
     requestBody: {
         content: {
             'application/json': {

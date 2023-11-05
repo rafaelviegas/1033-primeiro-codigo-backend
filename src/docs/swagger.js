@@ -23,7 +23,15 @@ module.exports = {
       description: "API's Best Browser Games.", 
       version: "1.0.0"
     },
-
+    components: {
+        securitySchemes: {
+            bearerAuth: {
+                type: "http",
+                scheme: "bearer",
+                bearerFormat: "JWT"
+            }
+        }
+    },
     tags: [
         {
             name: 'Categories'
@@ -76,6 +84,4 @@ module.exports = {
             "post": loginUser
         },
     }
-
-
 };

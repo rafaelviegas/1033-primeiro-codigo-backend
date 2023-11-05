@@ -3,11 +3,6 @@ module.exports = {
     tags: ['Categories'],
     description: "Consulta uma Categoria por ID",
     operationId: 'getCategoryById',
-    security: [
-        {
-            bearerAuth: []
-        }
-    ],
     parameters: [
         {
             "name": "categoryId",

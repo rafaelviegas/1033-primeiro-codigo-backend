@@ -3,11 +3,6 @@ module.exports = {
     tags: ['Users'],
     description: "Login de membros",
     operationId: 'loginUser',
-    security: [
-        {
-            bearerAuth: []
-        }
-    ],
     requestBody: {
         content: {
             'application/json': {

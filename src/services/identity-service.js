@@ -11,14 +11,14 @@ exports.decodeToken = async (token) => {
 }
 
 exports.authorize = (req, res, next) => {
-    var token = req.body.token || req.query.token || req.headers['x-access-token'];
-
+    var token = req.body.token || req.query.token || req.headers['x-access-token'] || req.headers['authorization'];
+    
     if(!token){
         res.status(401).json([{
             message: 'Acesso restrito.'
         }]);
     }else{
-        jwt.verify(token, global.SALT_KEY, (error, decoded )=> {
+        jwt.verify(token.replace("Bearer ",""), global.SALT_KEY, (error, decoded )=> {
             if(error){
                 res.status(401).json([{
                     message: 'Token inválido.'
@@ -30,14 +30,14 @@ exports.authorize = (req, res, next) => {
     }
 };
 exports.isAdmin = (req, res, next) => {
-    var token = req.body.token || req.query.token || req.headers['x-access-token'];
-
+    var token = req.body.token || req.query.token || req.headers['x-access-token'] || req.headers['authorization'];
+    
     if(!token){
         res.status(401).json([{
             message: 'Acesso restrito.'
         }]);
     }else{
-        jwt.verify(token, global.SALT_KEY, (error, decoded )=> {
+        jwt.verify(token.replace("Bearer ",""), global.SALT_KEY, (error, decoded )=> {
             if(error){
                 res.status(401).json([{
                     message: 'Token inválido.'
