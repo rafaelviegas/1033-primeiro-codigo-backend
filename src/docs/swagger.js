@@ -16,6 +16,11 @@ const postUser = require('./post.user.swagger');
 const putUser = require('./put.user.swagger');
 const loginUser = require('./login.user.swagger');
 
+const getRatingById = require('./get.rating.swagger');
+const postRating = require('./post.rating.swagger');
+const putRating = require('./put.rating.swagger');
+const getRatingsByGameId = require('./get.game.ratings.swagger');
+
 module.exports = {
     openapi: "3.0.3",
     info: {
@@ -41,7 +46,10 @@ module.exports = {
         },
         {
             name: 'Users'
-        }
+        },
+        {
+            name: 'Ratings'
+        }        
     ],
     paths: {
         "/categories": {
@@ -83,5 +91,17 @@ module.exports = {
         "/users/login": {
             "post": loginUser
         },
+        "/ratings/{ratingId}": {
+            "get": getRatingById
+        },     
+        "/ratings": {
+            "post": postRating
+        },
+        "/ratings/{ratingId} ": {
+            "put": putRating
+        }, 
+        "/games/{gameId}/ratings": {
+            "get": getRatingsByGameId
+        },        
     }
 };
